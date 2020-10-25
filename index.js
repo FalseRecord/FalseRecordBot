@@ -2,10 +2,17 @@
 
 // constances 
 const Discord = require('discord.js');
-const client = new Discord.Client();
+const client = new Discord.Client({partials: ["MESSAGE", "USER", "REACTION"]});
 const prefix = 'r!';
 const fs = require('fs');
  
+const settings = new enmap({
+    name: "settings",
+    autoFetch: true,
+    cloneLevel: "deep",
+    fetchAll: true
+
+})
 // getting Discord Collection and putting it into the commands
 client.commands = new Discord.Collection();
  
@@ -80,16 +87,44 @@ client.on('message', message =>{
     }
 });
 
-client.on('message', message =>{
+client.on('message', async =>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;
  
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
  
-    if(command === 'randomnumber'){
-        client.commands.get('numbergame').execute(message, args); 
+    if(command === 'ticket-setup'){
+        let channel = message.mentions.channels.first();
+
+        if(!channel) return message.reply("Missing Argument: channel.")
+
+        let sent = await channel.send(new discord.MessageEmbed()
+            .setTitle("Ticket System")
+            .setDescription("React to open a ticket!")
+            .setColor("ff2050")
+            .setFooter("Ticket System")
+
+        );
+    settings.set(`${message.guild.id}-ticket`, sent.id);
+    sent.react("🎫")
+    message.channel.send("Ticket System Setup Done!")
     }
 });
+
+client.on('messageReactionAdd', async (reaction, user) =>{
+    if(user.partial) await user.fetch();
+    if(reaction.partial) await reaction.fetch();
+    if(reaction.message.partial) await reaction.message.fetch();
+
+    if(user.bot) return;
+
+    let ticketid = await settings.get(`${reaction.message.guild.id}-ticket`)
+    if(!ticketid) return;
+
+    //if(reaction.message.id)
+
+
+})
 
 
 
