@@ -98,7 +98,7 @@ client.on('message', async =>{
 
         if(!channel) return message.reply("Missing Argument: channel.")
 
-        let sent = await channel.send(new discord.MessageEmbed()
+        let sent = aync(await channel.send(new discord.MessageEmbed())
             .setTitle("Ticket System")
             .setDescription("React to open a ticket!")
             .setColor("ff2050")
