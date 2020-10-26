@@ -6,13 +6,13 @@ const client = new Discord.Client({partials: ["MESSAGE", "USER", "REACTION"]});
 const prefix = 'r!';
 const fs = require('fs');
  
-const settings = new enmap({
-    name: "settings",
-    autoFetch: true,
-    cloneLevel: "deep",
-    fetchAll: true
+// const settings = new enmap({
+//     name: "settings",
+//     autoFetch: true,
+//     cloneLevel: "deep",
+//     fetchAll: true
 
-})
+// })
 // getting Discord Collection and putting it into the commands
 client.commands = new Discord.Collection();
  
