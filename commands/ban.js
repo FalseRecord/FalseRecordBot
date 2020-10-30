@@ -16,17 +16,17 @@ module.exports = {
      if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("You need permissions!") 
      if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send("Bot need permissions!") 
 
-        const reason = args[1] || "There was no reason!";
+     const reason = args[1] || "There was no reason!";
 
-        toBan.ban({
-            reason: reason
-        })
+     toBan.ban({
+      reason: reason
+     })
       
-      let embed = new discord.MessageEmbed()
-      .setTitle("Action: Ban")
-      .setDescription(`Banned ${toBan} for ${reason}`)
-      .setColor("#ff2050")
-      .setFooter(`Banned by ${message.author.username}`);
+     let embed = new discord.MessageEmbed()
+       .setTitle("Action: Ban")
+       .setDescription(`Banned ${toBan} for ${reason}`)
+       .setColor("#ff2050")
+       .setFooter(`Banned by ${message.author.username}`);
   
       message.channel.send(embed)
       
