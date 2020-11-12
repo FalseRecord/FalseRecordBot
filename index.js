@@ -3,11 +3,16 @@
 // constances 
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const config = require('./config.json')
-const token = config.token
 const prefix = 'r!';
 const fs = require('fs');
  
+// const settings = new enmap({
+//     name: "settings",
+//     autoFetch: true,
+//     cloneLevel: "deep",
+//     fetchAll: true
+
+// })
 // getting Discord Collection and putting it into the commands
 client.commands = new Discord.Collection();
  
@@ -15,13 +20,14 @@ client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 for(const file of commandFiles){
     const command = require(`./commands/${file}`);
+ 
     client.commands.set(command.name, command);
 }
  
 // When the bot starts up
 client.once('ready', () => {
-    console.log('FalseBot has loaded!!');
-    client.user.setActivity("Prefix: r! | Join for support: https://discord.gg/Ux2AkjJnf7", {type: 'PLAYING'})
+    console.log('FalseBot is online!');
+    client.user.setActivity("Prefix: r! | For Support: https://discord.gg/Ux2AkjJnf7", {type: 'PLAYING'})
 });
  
 // Message Checks
@@ -92,6 +98,45 @@ client.on('message', message =>{
     }
 });
 
+// client.on('message', async =>{
+//     if(!message.content.startsWith(prefix) || message.author.bot) return;
+ 
+//     const args = message.content.slice(prefix.length).split(/ +/);
+//     const command = args.shift().toLowerCase();
+ 
+//     if(command === 'ticket-setup'){
+//         let channel = message.mentions.channels.first();
+
+//         if(!channel) return message.reply("Missing Argument: channel.")
+
+//         let sent = aync(await channel.send(new discord.MessageEmbed())
+//             .setTitle("Ticket System")
+//             .setDescription("React to open a ticket!")
+//             .setColor("ff2050")
+//             .setFooter("Ticket System")
+
+//         );
+//     settings.set(`${message.guild.id}-ticket`, sent.id);
+//     sent.react("🎫")
+//     message.channel.send("Ticket System Setup Done!")
+//     }
+// });
+
+// client.on('messageReactionAdd', async (reaction, user) =>{
+//     if(user.partial) await user.fetch();
+//     if(reaction.partial) await reaction.fetch();
+//     if(reaction.message.partial) await reaction.message.fetch();
+
+//     if(user.bot) return;
+
+//     let ticketid = await settings.get(`${reaction.message.guild.id}-ticket`)
+//     if(!ticketid) return;
+
+//     //if(reaction.message.id)
 
 
-client.login(token);
+//})
+
+
+
+client.login(process.env.token);
