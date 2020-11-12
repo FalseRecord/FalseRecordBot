@@ -27,7 +27,7 @@ for(const file of commandFiles){
 // When the bot starts up
 client.once('ready', () => {
     console.log('FalseBot is online!');
-    client.user.setActivity("Prefix: r! | Developer: FalseRecord", {type: 'PLAYING'})
+    client.user.setActivity("Prefix: r! | For Support: https://discord.gg/Ux2AkjJnf7", {type: 'PLAYING'})
 });
  
 // Message Checks
@@ -84,6 +84,17 @@ client.on('message', message =>{
  
     if(command === 'purge'){
         client.commands.get('purge').execute(message, args); 
+    }
+});
+
+client.on('message', message =>{
+    if(!message.content.startsWith(prefix) || message.author.bot) return;
+ 
+    const args = message.content.slice(prefix.length).split(/ +/);
+    const command = args.shift().toLowerCase();
+ 
+    if(command === 'randomnumber'){
+        client.commands.get('numbergame').execute(message, args); 
     }
 });
 
