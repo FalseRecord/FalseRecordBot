@@ -3,7 +3,7 @@
 // constances 
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = 'r!';
+const prefix = '/';
 const fs = require('fs');
  
 // const settings = new enmap({
@@ -27,7 +27,7 @@ for(const file of commandFiles){
 // When the bot starts up
 client.once('ready', () => {
     console.log('FalseBot is online!');
-    client.user.setActivity("Prefix: r! | For Support: https://discord.gg/Ux2AkjJnf7", {type: 'PLAYING'})
+    client.user.setActivity("Prefix: / | Made by: False;#9999", {type: 'PLAYING'})
 });
  
 // Message Checks
@@ -98,7 +98,7 @@ client.on('message', message =>{
     }
 });
 
-// client.on('message', async =>{
+client.on('message', async =>{
 //     if(!message.content.startsWith(prefix) || message.author.bot) return;
  
 //     const args = message.content.slice(prefix.length).split(/ +/);
@@ -118,9 +118,8 @@ client.on('message', message =>{
 //         );
 //     settings.set(`${message.guild.id}-ticket`, sent.id);
 //     sent.react("🎫")
-//     message.channel.send("Ticket System Setup Done!")
-//     }
-// });
+//     message.channel.send("Ticket System Setup Done!")     }
+ });
 
 // client.on('messageReactionAdd', async (reaction, user) =>{
 //     if(user.partial) await user.fetch();
