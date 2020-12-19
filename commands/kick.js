@@ -27,7 +27,7 @@ module.exports = {
       .setColor("#ff2050")
       .setFooter(`nil`);
       
-      message.channel.send(embed)
+      return message.channel.send(embed)
     }
 
    

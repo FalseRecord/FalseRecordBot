@@ -26,7 +26,7 @@ for(const file of commandFiles){
  
 // When the bot starts up
 client.once('ready', () => {
-    console.log('FalseBot is online!');
+    console.log('Southglow is online!');
     client.user.setActivity("Prefix: / | Made by: False;#9999", {type: 'PLAYING'})
 });
  
