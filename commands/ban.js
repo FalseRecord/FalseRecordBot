@@ -20,9 +20,9 @@ module.exports = {
       .setDescription(`USER MISSING_PERMISSION: BAN_MEMBERS!`)
       .setColor("#4f7d96")
       .setFooter(`nil`);
-       
-
+      
      }
+
      if (!message.guild.me.hasPermission("BAN_MEMBERS")){
 
       let embed = new discord.MessageEmbed()
@@ -32,7 +32,7 @@ module.exports = {
       .setFooter(`nil`);
 
      }
-     
+
      if(!toBan){
 
       let embed = new discord.MessageEmbed()
@@ -55,17 +55,14 @@ module.exports = {
 
      }
 
-     toBan.ban({
-      reason: reason
-     })
       
-     let embed = new discord.MessageEmbed()
-       .setTitle("Action: Ban")
-       .setDescription(`Banned ${toBan} for ${reason}`)
-       .setColor("#ff2050")
-       .setFooter(`Banned by ${message.author.username}`);
+    let embed = new discord.MessageEmbed()
+      .setTitle("Action: Ban")
+      .setDescription(`Banned ${toBan} for ${reason}`)
+      .setColor("#ff2050")
+      .setFooter(`Banned by ${message.author.username}`);
   
-      message.channel.send(embed)
+    message.channel.send(embed)
       
     }
  }
