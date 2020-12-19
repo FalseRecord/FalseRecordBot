@@ -7,17 +7,35 @@ module.exports = {
   usage: "kick <@user> <raeson>",
   execute: (message, args) => {
     if(!message.member.hasPermission("KICK_MEMBERS")) {
-      return message.channel.send(`**${message.author.username}**, You do not have enough permission to use this command`)
+      let embed = new discord.MessageEmbed()
+      .setTitle("Action: Kick (fail)")
+      .setDescription(`USER MISSING_PERMISSION: KICK_MEMBERS!`)
+      .setColor("#ff2050")
+      .setFooter(`nil`);
+      
+      return message.channel.send(embed)
     }
     
     if(!message.guild.me.hasPermission("KICK_MEMBERS")) {
-      return message.channel.send(`**${message.author.username}**, I do not have enough permission to use this command`)
+      let embed = new discord.MessageEmbed()
+      .setTitle("Action: Kick (fail)")
+      .setDescription(`BOT MISSING_PERMISSION: KICK_MEMBERS!`)
+      .setColor("#ff2050")
+      .setFooter(`nil`);
+      
+      return message.channel.send(embed)
     }
 
     let target = message.mentions.members.first();
     
     if(!target) {
-      return message.channel.send(`**${message.author.username}**, Please mention the person who you want to kick`)
+      let embed = new discord.MessageEmbed()
+      .setTitle("Action: Kick (fail)")
+      .setDescription(`Failed to mention username in argument!`)
+      .setColor("#ff2050")
+      .setFooter(`nil`);
+      
+      return message.channel.send(embed)
     }
 
     if(target.id === message.author.id) {
@@ -30,7 +48,7 @@ module.exports = {
       return message.channel.send(embed)
     }
 
-   
+    
     let embed = new discord.MessageEmbed()
     .setTitle("Action: Kick")
     .setDescription(`Kicked ${target} (${target.id})`)
