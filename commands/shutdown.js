@@ -6,7 +6,7 @@ module.exports = {
   description: "Shuts down bot if really needed",
   usage: "!shutdown",
   execute: (message, args) => {
-    if(!message.author.id == "700102460286697523", "380994102742745098"){
+    if(!message.author.id == "700102460286697523"){
 
         let embed = new discord.MessageEmbed()
         .setTitle("Action: Shutdown (fail)")
