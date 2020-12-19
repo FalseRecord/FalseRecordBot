@@ -13,10 +13,47 @@ module.exports = {
      
      let toBan = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]);
 
-     if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("You need permissions!") 
-     if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send("Bot need permissions!") 
+     if (!message.member.hasPermission("BAN_MEMBERS")){
 
-     const reason = args[1] || "There was no reason!";
+      let embed = new discord.MessageEmbed()
+      .setTitle("Action:  Ban (fail)")
+      .setDescription(`USER MISSING_PERMISSION: BAN_MEMBERS!`)
+      .setColor("#4f7d96")
+      .setFooter(`nil`);
+       
+
+     }
+     if (!message.guild.me.hasPermission("BAN_MEMBERS")){
+
+      let embed = new discord.MessageEmbed()
+      .setTitle("Action: Ban (fail)")
+      .setDescription(`BOT MISSING_PERMISSION: BAN_MEMBERS!`)
+      .setColor("#4f7d96")
+      .setFooter(`nil`);
+
+     }
+     
+     if(!toBan){
+
+      let embed = new discord.MessageEmbed()
+      .setTitle("Action: Ban (fail)")
+      .setDescription(`Failed to mention username in argument!`)
+      .setColor("#4f7d96")
+      .setFooter(`nil`);
+
+     }
+
+     const reason = args[3]
+
+     if (!reason){
+
+      let embed = new discord.MessageEmbed()
+      .setTitle("Action: Ban (fail)")
+      .setDescription(`Must have reason to ban user.`)
+      .setColor("#4f7d96")
+      .setFooter(`nil`);
+
+     }
 
      toBan.ban({
       reason: reason
