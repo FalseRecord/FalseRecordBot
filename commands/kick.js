@@ -10,7 +10,7 @@ module.exports = {
       let embed = new discord.MessageEmbed()
       .setTitle("Action: Kick (fail)")
       .setDescription(`USER MISSING_PERMISSION: KICK_MEMBERS!`)
-      .setColor("#ff2050")
+      .setColor("#4f7d96")
       .setFooter(`nil`);
       
       return message.channel.send(embed)
@@ -20,7 +20,7 @@ module.exports = {
       let embed = new discord.MessageEmbed()
       .setTitle("Action: Kick (fail)")
       .setDescription(`BOT MISSING_PERMISSION: KICK_MEMBERS!`)
-      .setColor("#ff2050")
+      .setColor("#4f7d96")
       .setFooter(`nil`);
       
       return message.channel.send(embed)
@@ -32,7 +32,7 @@ module.exports = {
       let embed = new discord.MessageEmbed()
       .setTitle("Action: Kick (fail)")
       .setDescription(`Failed to mention username in argument!`)
-      .setColor("#ff2050")
+      .setColor("#4f7d96")
       .setFooter(`nil`);
       
       return message.channel.send(embed)
@@ -42,7 +42,7 @@ module.exports = {
       let embed = new discord.MessageEmbed()
       .setTitle("Action: Kick (fail)")
       .setDescription(`You can't kick yourself!`)
-      .setColor("#ff2050")
+      .setColor("#4f7d96")
       .setFooter(`nil`);
       
       return message.channel.send(embed)
@@ -52,7 +52,7 @@ module.exports = {
     let embed = new discord.MessageEmbed()
     .setTitle("Action: Kick")
     .setDescription(`Kicked ${target} (${target.id})`)
-    .setColor("#ff2050")
+    .setColor("#4f7d96")
     .setFooter(`Kicked by ${message.author.username}`);
     
     message.channel.send(embed)
