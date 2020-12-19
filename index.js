@@ -30,7 +30,7 @@ client.once('ready', () => {
     client.user.setActivity("Prefix: / | Made by: False;#9999", {type: 'PLAYING'})
 });
  
-// Message Checks
+// User Commands
 client.on('message', message =>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;
  
@@ -135,6 +135,21 @@ client.on('message', async =>{
 
 
 //})
+
+
+// MyCommands
+
+client.on('message', message =>{
+    if(!message.content.startsWith(prefix) || message.author.bot) return;
+ 
+    const args = message.content.slice(prefix.length).split(/ +/);
+    const command = args.shift().toLowerCase();
+ 
+    if(command === 'shutdown'){
+        client.commands.get('shutdown').execute(message, args); 
+    }
+});
+
 
 
 
