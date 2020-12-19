@@ -17,24 +17,16 @@ const fs = require('fs');
 client.commands = new Discord.Collection();
  
 // getting the file names and adding the end .js
-const modcommandFiles = fs.readdirSync('./commands/ModCommands').filter(file => file.endsWith('.js'));
-const funcommandFiles = fs.readdirSync('./commands/FunCommands').filter(file => file.endsWith('.js'));
-
-for(const file of modcommandFiles){
-    const command = require(`./commands/${modcommandFiles}`);
- 
-    client.commands.set(command.name, command);
-}
-
-for(const file of funcommandFiles){
-    const command = require(`./commands/${funcommandFiles}`);
+const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
+for(const file of commandFiles){
+    const command = require(`./commands/${file}`);
  
     client.commands.set(command.name, command);
 }
  
 // When the bot starts up
 client.once('ready', () => {
-    console.log(' is online!');
+    console.log('FalseBot is online!');
     client.user.setActivity("Prefix: / | Made by: False;#9999", {type: 'PLAYING'})
 });
  
