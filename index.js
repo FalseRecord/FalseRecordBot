@@ -21,13 +21,13 @@ const modcommandFiles = fs.readdirSync('./commands/ModCommands').filter(file => 
 const funcommandFiles = fs.readdirSync('./commands/FunCommands').filter(file => file.endsWith('.js'));
 
 for(const file of modcommandFiles){
-    const command = require(`./commands/${file}`);
+    const command = require(`./commands/${modcommandFiles}`);
  
     client.commands.set(command.name, command);
 }
 
 for(const file of funcommandFiles){
-    const command = require(`./commands/${file}`);
+    const command = require(`./commands/${funcommandFiles}`);
  
     client.commands.set(command.name, command);
 }
