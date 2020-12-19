@@ -21,7 +21,13 @@ module.exports = {
     }
 
     if(target.id === message.author.id) {
-      return message.channel.send(`**${message.author.username}**, You can not kick yourself`)
+      let embed = new discord.MessageEmbed()
+      .setTitle("Action: Kick (fail)")
+      .setDescription(`You can't kick yourself!`)
+      .setColor("#ff2050")
+      .setFooter(`nil`);
+      
+      message.channel.send(embed)
     }
 
    
