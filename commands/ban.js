@@ -24,7 +24,6 @@ module.exports = {
      }
 
      if (!message.guild.me.hasPermission("BAN_MEMBERS")){
-
       let embed = new discord.MessageEmbed()
       .setTitle("Action: Ban (fail)")
       .setDescription(`BOT MISSING_PERMISSION: BAN_MEMBERS!`)
