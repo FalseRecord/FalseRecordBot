@@ -1,5 +1,7 @@
 // FalseRecord - 24/10/2020
 
+// CAN NOT RUN IN F5 MODE OTHERWISE IT WILL BREAK
+
 // constances 
 const Discord = require('discord.js');
 const client = new Discord.Client();
