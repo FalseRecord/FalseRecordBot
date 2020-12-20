@@ -40,19 +40,18 @@ module.exports = {
       .setFooter(`nil`)
      }
 
-     const reason = args[3]
+     const reason = args[2]
 
      if (!reason){
-
       let embed = new discord.MessageEmbed()
       .setTitle("Action: Ban (fail)")
-      .setDescription(`Must have reason to ban user.`)
+      .setDescription(`No reason added for banning this member`)
       .setColor("#4f7d96")
       .setFooter(`nil`);
-
      }
 
-      
+    
+
     let embed = new discord.MessageEmbed()
       .setTitle("Action: Ban")
       .setDescription(`Banned ${toBan} for ${reason}`)
