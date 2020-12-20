@@ -11,7 +11,7 @@ module.exports = {
      let args = messageArray.slice(1);
 
      
-     let toBan = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]);
+     let toBan = message.mentions.members.first();
 
      if (!message.member.hasPermission("BAN_MEMBERS")){
 
@@ -33,13 +33,11 @@ module.exports = {
      }
 
      if(!toBan){
-
       let embed = new discord.MessageEmbed()
       .setTitle("Action: Ban (fail)")
       .setDescription(`Failed to mention username in argument!`)
       .setColor("#4f7d96")
-      .setFooter(`nil`);
-
+      .setFooter(`nil`)
      }
 
      const reason = args[3]
