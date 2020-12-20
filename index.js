@@ -62,7 +62,7 @@ client.on('message', message =>{
     const command = args.shift().toLowerCase();
  
     if(command === 'ban'){
-        return message.channel.send("This command is currently unavaible, please wait untill updated!")
+        client.commands.get('ban').execute(message, args); 
     }
 });
 
