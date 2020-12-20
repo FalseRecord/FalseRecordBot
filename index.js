@@ -98,6 +98,19 @@ client.on('message', message =>{
     }
 });
 
+
+client.on('message', message =>{
+    if(!message.content.startsWith(prefix) || message.author.bot) return;
+ 
+    const args = message.content.slice(prefix.length).split(/ +/);
+    const command = args.shift().toLowerCase();
+ 
+    if(command === 'mute'){
+        client.commands.get('mute').execute(message, args); 
+    }
+});
+
+
 client.on('message', async =>{
 //     if(!message.content.startsWith(prefix) || message.author.bot) return;
  
