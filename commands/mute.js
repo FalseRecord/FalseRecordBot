@@ -31,7 +31,7 @@ module.exports = {
         }
 
         if(!time) {
-
+            message.channel.send("You need to enter a valid time.")
         }
     }
 }
