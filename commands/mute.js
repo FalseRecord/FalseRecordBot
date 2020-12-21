@@ -7,13 +7,14 @@ module.exports = {
     category: "moderation",
     description: "mutes player for length of time",
     usage: "nil",
-    execute: (message, args) => {
+    execute: (message) => {
 
         let messageArray = message.content.split(" ")
         let args = messageArray.slice(1);
    
         
         let target = message.mentions.members.first();
+        const time = args[2]
    
         if(!message.member.hasPermission("MANAGE_ROLES")) {
             let embed = new discord.MessageEmbed()
