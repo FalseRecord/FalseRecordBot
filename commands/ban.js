@@ -58,7 +58,7 @@ module.exports = {
       .setColor("#ff2050")
       .setFooter(`Banned by ${message.author.username}`);
   
-    message.channel.send(embed)
-      
+    message.channel.send(embed) 
+        
     }
  }

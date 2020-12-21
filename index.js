@@ -15,10 +15,10 @@ const fs = require('fs');
 //     fetchAll: true
 
 // })
-// getting Discord Collection and putting it into the commands
+
 client.commands = new Discord.Collection();
  
-// getting the file names and adding the end .js
+
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 for(const file of commandFiles){
     const command = require(`./commands/${file}`);
@@ -26,7 +26,6 @@ for(const file of commandFiles){
     client.commands.set(command.name, command);
 }
  
-// When the bot starts up
 client.once('ready', () => {
     console.log('Southglow is online!');
     client.user.setActivity("Prefix: / | Made by: False;#9999", {type: 'PLAYING'})
