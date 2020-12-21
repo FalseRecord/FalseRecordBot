@@ -14,8 +14,6 @@ module.exports = {
         let target = message.mentions.members.first();
         const time = args[2]
 
-        let MuteRole = guild.roles.find()
-   
         if(!message.member.hasPermission("MANAGE_ROLES")) {
             let embed = new discord.MessageEmbed()
             .setTitle("Action: Mute (fail)")
