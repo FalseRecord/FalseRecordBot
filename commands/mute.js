@@ -43,7 +43,7 @@ module.exports = {
         }
 
 
-        person.roles.add(790585828086513664)
+        target.roles.add(790585828086513664)
         let embed = new discord.MessageEmbed()
         .setTitle("Action: Mute")
         .setDescription(`Muted ${target} (${target.id})`)
@@ -53,7 +53,7 @@ module.exports = {
         message.channel.send(embed)
 
         setTimeout(function(){
-            person.roles.remove(790585828086513664)
+            target.roles.remove(790585828086513664)
             let embed = new discord.MessageEmbed()
             .setTitle("Action: Mute")
             .setDescription(`Unmuted ${target} (${target.id})`)
