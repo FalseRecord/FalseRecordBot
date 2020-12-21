@@ -14,7 +14,7 @@ module.exports = {
         let target = message.mentions.members.first();
         const time = args[2]
 
-        let MuteRole = message.guild.roles.find(role => role.name == "SouthMuted")
+        let MuteRole = guild.roles.find()
    
         if(!message.member.hasPermission("MANAGE_ROLES")) {
             let embed = new discord.MessageEmbed()
@@ -45,7 +45,7 @@ module.exports = {
         }
 
 
-        target.addRole(MuteRole.id)
+        person.roles.add(790585828086513664)
         let embed = new discord.MessageEmbed()
         .setTitle("Action: Mute")
         .setDescription(`Muted ${target} (${target.id})`)
@@ -55,7 +55,7 @@ module.exports = {
         message.channel.send(embed)
 
         setTimeout(function(){
-            target.removeRole(MuteRole.id)
+            person.roles.remove(790585828086513664)
             let embed = new discord.MessageEmbed()
             .setTitle("Action: Mute")
             .setDescription(`Unmuted ${target} (${target.id})`)
