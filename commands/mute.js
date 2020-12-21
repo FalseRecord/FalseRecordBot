@@ -1,5 +1,5 @@
 const discord = require('discord.js')
-//const ms = require('ms')
+const ms = require('ms')
 
 
 module.exports = {
@@ -11,10 +11,10 @@ module.exports = {
 
         let messageArray = message.content.split(" ")
         let args = messageArray.slice(1);
-   
-        
         let target = message.mentions.members.first();
         const time = args[2]
+
+        let MuteRole = message.guild.roles.find(role => role.name == "SouthMuted")
    
         if(!message.member.hasPermission("MANAGE_ROLES")) {
             let embed = new discord.MessageEmbed()
@@ -43,5 +43,27 @@ module.exports = {
             .setFooter(`nil`);
             message.channel.send(embed) 
         }
+
+
+        target.addRole(MuteRole.id)
+        let embed = new discord.MessageEmbed()
+        .setTitle("Action: Mute")
+        .setDescription(`Muted ${target} (${target.id})`)
+        .setColor("#4f7d96")
+        .setFooter(`Muted by ${message.author.username}`);
+        
+        message.channel.send(embed)
+
+        setTimeout(function(){
+            target.removeRole(MuteRole.id)
+            let embed = new discord.MessageEmbed()
+            .setTitle("Action: Mute")
+            .setDescription(`Unmuted ${target} (${target.id})`)
+            .setColor("#4f7d96")
+            .setFooter(`Auto`);
+            message.channel.send(embed)
+        });
+
+
     }
 }
