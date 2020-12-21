@@ -36,7 +36,12 @@ module.exports = {
         }
 
         if(!time) {
-            message.channel.send("You need to enter a valid time.")
+            let embed = new discord.MessageEmbed()
+            .setTitle("Action: Mute (fail)")
+            .setDescription(`Failed to mention a time in argument!`)
+            .setColor("#4f7d96")
+            .setFooter(`nil`);
+            message.channel.send(embed) 
         }
     }
 }
