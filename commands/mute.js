@@ -8,9 +8,13 @@ module.exports = {
     description: "mutes player for length of time",
     usage: "nil",
     execute: (message, args) => {
-        let target = message.guild.member(message.mentions.user.first() || message.guild.members.get(args[1]))
-        let time = message.args[2]
 
+        let messageArray = message.content.split(" ")
+        let args = messageArray.slice(1);
+   
+        
+        let target = message.mentions.members.first();
+   
         if(!message.member.hasPermission("MANAGE_ROLES")) {
             let embed = new discord.MessageEmbed()
             .setTitle("Action: Mute (fail)")
