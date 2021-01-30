@@ -50,15 +50,17 @@ module.exports = {
       .setFooter(`nil`);
      }
 
-    
+   
 
+      
     let embed = new discord.MessageEmbed()
-      .setTitle("Action: Ban")
-      .setDescription(`Banned ${toBan} for ${reason}`)
-      .setColor("#ff2050")
-      .setFooter(`Banned by ${message.author.username}`);
+    .setTitle("Action: Ban")
+    .setDescription(`Banned ${toBan} for ${reason}`)
+    .setColor("#ff2050")
+    .setFooter(`Banned by ${message.author.username}`);
   
-    message.channel.send(embed) 
+    message.channel.send(embed).cache(err => message.channel.send(err))
+
         
     }
  }

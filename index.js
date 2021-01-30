@@ -28,10 +28,13 @@ for(const file of commandFiles){
  
 client.once('ready', () => {
     console.log('Southglow is online!');
-    client.user.setActivity("Prefix: / | Made by: False;#9999", {type: 'PLAYING'})
+    client.user.setActivity("Undergoing Development - PRONE TO CRASHING.", {type: 'PLAYING'})
 });
  
 // User Commands
+
+
+
 client.on('message', message =>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;
  
