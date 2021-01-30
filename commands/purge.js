@@ -12,7 +12,7 @@ module.exports = {
       .setTitle("Action: Purge")
       .setDescription(`${message.author.username} has purged this channel!`)
       .setColor("#116790")
-      .setFooter(`FalseBot2020`);
+      .setFooter(`Southglow Moderation`);
       
       if(args[0] === "") return message.channel.send(`**Please provide a valid amount!**`)
 
